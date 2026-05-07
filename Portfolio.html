@@ -904,84 +904,450 @@
             Insights, updates, and practical advice from the NovaForge Solutions team.
           </p>
         </div>
-    
+
+        <section class="managers-guide-poster" aria-label="The Manager's Guide information poster">
+          <style>
+            .managers-guide-poster {
+              --bg: #f6f1e8;
+              --ink: #1f2933;
+              --muted: #5f6c7b;
+              --accent: #2563eb;
+              --accent-dark: #173ea5;
+              --card: #ffffff;
+              --gold: #f2b84b;
+              --green: #2f855a;
+              --shadow: 0 18px 45px rgba(31, 41, 51, 0.16);
+
+              box-sizing: border-box;
+              max-width: 1050px;
+              position: relative;
+              z-index: 0;
+              clear: both;
+              margin: 3rem auto 2rem;
+              padding: 0;
+              font-family: Inter, Arial, Helvetica, sans-serif;
+              color: var(--ink);
+              background: var(--bg);
+              border-radius: 28px;
+              overflow: hidden;
+              box-shadow: var(--shadow);
+              
+            }
+
+            .managers-guide-poster *,
+            .managers-guide-poster *::before,
+            .managers-guide-poster *::after {
+              box-sizing: border-box;
+            }
+
+            .poster-hero {
+              position: relative;
+              padding: 4rem 3rem 3rem;
+              background:
+                radial-gradient(circle at top right, rgba(242, 184, 75, 0.45), transparent 32%),
+                linear-gradient(135deg, #1d4ed8 0%, #2563eb 45%, #60a5fa 100%);
+              color: #ffffff;
+            }
+
+            .poster-hero::after {
+              content: "";
+              position: absolute;
+              right: -70px;
+              bottom: -90px;
+              width: 260px;
+              height: 260px;
+              border-radius: 50%;
+              border: 34px solid rgba(255, 255, 255, 0.18);
+            }
+
+            .poster-kicker {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 0.45rem 0.85rem;
+              border: 1px solid rgba(255, 255, 255, 0.45);
+              border-radius: 999px;
+              font-size: 0.85rem;
+              font-weight: 700;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              background: rgba(255, 255, 255, 0.14);
+              backdrop-filter: blur(8px);
+            }
+
+            .poster-title {
+              max-width: 760px;
+              margin: 1.2rem 0 0.75rem;
+              font-size: clamp(2.8rem, 7vw, 6.4rem);
+              line-height: 0.92;
+              letter-spacing: -0.08em;
+              font-weight: 900;
+            }
+
+            .poster-subtitle {
+              max-width: 680px;
+              margin: 0;
+              font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+              line-height: 1.6;
+              color: rgba(255, 255, 255, 0.92);
+            }
+
+            .poster-body {
+              padding: 2.25rem;
+            }
+
+            .definition-card {
+              display: grid;
+              grid-template-columns: 1.1fr 0.9fr;
+              gap: 1.5rem;
+              align-items: stretch;
+              margin-bottom: 1.5rem;
+            }
+
+            .meaning-box,
+            .quote-box,
+            .guide-card,
+            .action-panel {
+              background: var(--card);
+              border-radius: 24px;
+              padding: 1.6rem;
+              box-shadow: 0 8px 24px rgba(31, 41, 51, 0.08);
+              border: 1px solid rgba(31, 41, 51, 0.08);
+            }
+
+            .section-label {
+              margin: 0 0 0.7rem;
+              color: var(--accent-dark);
+              font-size: 0.82rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              font-weight: 900;
+            }
+
+            .meaning-box h2,
+            .action-panel h2 {
+              margin: 0 0 0.65rem;
+              font-size: clamp(1.45rem, 3vw, 2rem);
+              line-height: 1.15;
+            }
+
+            .meaning-box p,
+            .action-panel p,
+            .guide-card p,
+            .quote-box p {
+              margin: 0;
+              color: var(--muted);
+              line-height: 1.65;
+              font-size: 1rem;
+            }
+
+            .quote-box {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              background: #111827;
+              color: #ffffff;
+              position: relative;
+              overflow: hidden;
+            }
+
+            .quote-box::before {
+              content: "“";
+              position: absolute;
+              top: -38px;
+              left: 16px;
+              color: rgba(255, 255, 255, 0.12);
+              font-size: 9rem;
+              font-family: Georgia, serif;
+            }
+
+            .quote-box p {
+              position: relative;
+              color: rgba(255, 255, 255, 0.92);
+              font-size: 1.25rem;
+              font-weight: 750;
+              line-height: 1.45;
+            }
+
+            .quote-box span {
+              position: relative;
+              margin-top: 1rem;
+              color: var(--gold);
+              font-size: 0.95rem;
+              font-weight: 800;
+            }
+
+            .guide-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 1rem;
+              margin-bottom: 1.5rem;
+            }
+
+            .guide-card {
+              min-height: 250px;
+              position: relative;
+            }
+
+            .icon-badge {
+              width: 50px;
+              height: 50px;
+              display: grid;
+              place-items: center;
+              border-radius: 18px;
+              margin-bottom: 1rem;
+              font-size: 1.55rem;
+              background: rgba(37, 99, 235, 0.1);
+            }
+
+            .guide-card:nth-child(2) .icon-badge {
+              background: rgba(242, 184, 75, 0.18);
+            }
+
+            .guide-card:nth-child(3) .icon-badge {
+              background: rgba(47, 133, 90, 0.13);
+            }
+
+            .guide-card h3 {
+              margin: 0 0 0.55rem;
+              font-size: 1.22rem;
+              line-height: 1.2;
+            }
+
+            .guide-card ul {
+              margin: 1rem 0 0;
+              padding-left: 1.1rem;
+              color: var(--muted);
+              line-height: 1.55;
+              font-size: 0.95rem;
+            }
+
+            .guide-card li + li {
+              margin-top: 0.45rem;
+            }
+
+            .action-panel {
+              background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.86)),
+                radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.18), transparent 36%);
+            }
+
+            .steps {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 0.8rem;
+              margin-top: 1.25rem;
+            }
+
+            .step {
+              padding: 1rem;
+              border-radius: 18px;
+              background: #f8fafc;
+              border: 1px solid rgba(31, 41, 51, 0.08);
+            }
+
+            .step strong {
+              display: block;
+              margin-bottom: 0.45rem;
+              color: var(--accent-dark);
+              font-size: 0.85rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+            }
+
+            .step span {
+              display: block;
+              color: var(--ink);
+              font-weight: 800;
+              line-height: 1.25;
+            }
+
+            .poster-footer {
+              display: flex;
+              justify-content: space-between;
+              gap: 1rem;
+              align-items: center;
+              padding: 1.2rem 2.25rem 1.7rem;
+              color: var(--muted);
+              font-size: 0.95rem;
+            }
+
+            .footer-pill {
+              padding: 0.55rem 0.85rem;
+              background: rgba(37, 99, 235, 0.1);
+              color: var(--accent-dark);
+              border-radius: 999px;
+              font-weight: 800;
+            }
+
+            @media (max-width: 850px) {
+              .poster-hero,
+              .poster-body,
+              .poster-footer {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+              }
+
+              .definition-card,
+              .guide-grid,
+              .steps {
+                grid-template-columns: 1fr;
+              }
+
+              .guide-card {
+                min-height: auto;
+              }
+
+              .poster-footer {
+                flex-direction: column;
+                align-items: flex-start;
+              }
+            }
+          </style>
+
+          <header class="poster-hero">
+            <div class="poster-kicker">Leadership • Communication • Growth</div>
+            <h1 class="poster-title">The Manager’s Guide</h1>
+            <p class="poster-subtitle">
+              A manager is not simply the person who gives instructions. A manager is a guide who creates direction, supports people, solves problems, and helps a team succeed together.
+            </p>
+          </header>
+
+          <div class="poster-body">
+            <div class="definition-card">
+              <article class="meaning-box">
+                <p class="section-label">What it means to us</p>
+                <h2>Management means turning goals into shared action.</h2>
+                <p>
+                  To us, “The Manager’s Guide” means knowing how to lead with fairness, confidence, and responsibility. A good manager sets clear expectations, listens to their team, makes decisions, and creates an environment where people understand their role and feel motivated to do their best.
+                </p>
+              </article>
+
+              <aside class="quote-box">
+                <p>Great managers do not control every step. They create the conditions for people to succeed.</p>
+                <span>Our leadership principle</span>
+              </aside>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card">
+                <div class="icon-badge">🎯</div>
+                <h3>Set clear expectations</h3>
+                <p>A team works best when everyone understands the goal, the standard, and their responsibilities.</p>
+                <ul>
+                  <li>Explain tasks clearly.</li>
+                  <li>Agree on deadlines and priorities.</li>
+                  <li>Make success easy to recognise.</li>
+                </ul>
+              </article>
+
+              <article class="guide-card">
+                <div class="icon-badge">🤝</div>
+                <h3>Build trust and respect</h3>
+                <p>People are more likely to contribute when they feel heard, valued, and treated fairly.</p>
+                <ul>
+                  <li>Listen before judging.</li>
+                  <li>Give honest feedback kindly.</li>
+                  <li>Recognise effort and improvement.</li>
+                </ul>
+              </article>
+
+              <article class="guide-card">
+                <div class="icon-badge">📈</div>
+                <h3>Support progress</h3>
+                <p>A manager should help the team improve, not just point out what is wrong.</p>
+                <ul>
+                  <li>Check in regularly.</li>
+                  <li>Solve problems early.</li>
+                  <li>Encourage learning and confidence.</li>
+                </ul>
+              </article>
+            </div>
+
+            <section class="action-panel">
+              <p class="section-label">How to achieve it</p>
+              <h2>Four habits of an effective manager</h2>
+              <p>
+                These habits help managers lead in a practical and positive way. They turn expectations into everyday actions.
+              </p>
+
+              <div class="steps">
+                <div class="step">
+                  <strong>01</strong>
+                  <span>Communicate clearly and regularly</span>
+                </div>
+                <div class="step">
+                  <strong>02</strong>
+                  <span>Lead by example, not just by instruction</span>
+                </div>
+                <div class="step">
+                  <strong>03</strong>
+                  <span>Stay organised and make fair decisions</span>
+                </div>
+                <div class="step">
+                  <strong>04</strong>
+                  <span>Reflect, improve, and help others grow</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+
         <div class="case-studies-wrap">
           <article class="card">
-            <div class="case-label">Blog Post 01</div>
-            <h3>Why Every Small Business Needs a Modern Website</h3>
+            <div class="case-label">Blog Post 01 - Julius</div>
+            <h3>My Opinion on Technology and Its Vulnerabilities</h3>
             <p>
-              A modern website is often the first impression a customer gets of a business. If the website looks outdated,
-              is difficult to use, or does not work well on mobile devices, customers may quickly lose trust and look for
-              another option.
+              Today’s technology is powerful, useful, and almost impossible to avoid. I use my phone and laptop every day for communication, studying, entertainment, shopping, and storing personal information. Because of this, I believe it is important to acknowledge the vulnerabilities that come with modern devices instead of pretending they do not exist.
             </p>
+
             <p>
-              For small businesses, a clear and professional website can make a big difference. It helps present services,
-              opening hours, contact information, prices, and brand identity in one easy-to-access place. It also gives the
-              business more credibility because customers can learn about it before making contact.
+              Technology has made life easier in many ways. Smartphones allow us to connect with people instantly, laptops help us complete school and work tasks, and online services make everyday activities more convenient. However, the same devices that help us can also expose us to risks such as hacking, phishing, malware, identity theft, and data leaks. These vulnerabilities are not always obvious, but they can have serious effects if users are careless.
             </p>
+
             <p>
-              Good website design should be simple, responsive, and easy to navigate. Visitors should be able to find the
-              most important information quickly. This is why businesses should focus not only on how a website looks, but
-              also on how useful it is for their customers.
+              In my opinion, ignoring technology vulnerabilities is dangerous. Some people assume that cyber threats only happen to companies or people with a lot of money, but anyone can become a target. A weak password, an unsafe Wi-Fi connection, or a suspicious link can put personal information at risk. This is why users need to be aware of how their devices work and how attackers may try to take advantage of them.
             </p>
-          </article>
-    
-          <article class="card">
-            <div class="case-label" style="background: var(--accent-2);">Blog Post 02</div>
-            <h3>How Workflow Automation Saves Time</h3>
+
             <p>
-              Many businesses spend a lot of time on repetitive tasks such as booking appointments, copying information,
-              sending reminders, or updating spreadsheets. These tasks may seem small, but together they can take several
-              hours every week.
+              When I use devices like my mobile phone and laptop, I try to acknowledge these risks and take basic precautions. For example, I believe it is important to use strong passwords, enable two-factor authentication, update software regularly, avoid downloading unknown files, and be careful with links or messages that seem suspicious. These steps may seem small, but they can help protect personal data and reduce the chance of cyber attacks.
             </p>
+
             <p>
-              Workflow automation helps reduce this manual work by using digital systems to complete simple tasks more
-              efficiently. For example, an appointment system can collect customer requests, organize booking times, and
-              reduce scheduling mistakes without needing constant manual updates.
+              I also think that companies and technology developers have a responsibility to make devices and applications safer. Users should be informed about privacy settings, security updates, and possible risks. At the same time, users should not depend completely on companies to protect them. Cybersecurity is a shared responsibility between developers, organizations, and everyday users.
             </p>
+
             <p>
-              Automation does not replace good communication or planning. Instead, it supports the team by making processes
-              more reliable. This allows people to focus on more important work, such as helping customers, improving
-              services, and growing the business.
+              Overall, I believe modern technology is extremely valuable, but it should be used with awareness. I do not think we should fear technology, but we should respect the risks that come with it. By acknowledging vulnerabilities and practicing safe habits, we can enjoy the benefits of phones, laptops, and online services while protecting ourselves from avoidable threats.
             </p>
           </article>
-    
+
           <article class="card">
-            <div class="case-label" style="background: var(--accent-3);">Blog Post 03</div>
-            <h3>What Makes Good UI/UX Design?</h3>
+            <div class="case-label" style="background: var(--accent-2);">Blog Post 02 - Khaldon</div>
+            <h3>The Benefits and Risks of Constantly Improving Technology</h3>
             <p>
-              UI and UX design are important parts of any digital product. UI, or user interface design, focuses on how a
-              website or application looks. UX, or user experience design, focuses on how easy and comfortable it is for
-              people to use.
+            Technology is constantly changing, and I believe this brings both exciting benefits and serious risks. One of the biggest strengths of improving technology is that it makes everyday life faster, easier, and more convenient. Smartphones, online banking, artificial intelligence, and cloud storage help people communicate, study, work, and solve problems more efficiently than ever before. Technology also gives people better access to information and creates new opportunities for businesses, education, healthcare, and transport.
             </p>
             <p>
-              Good design should guide the user naturally. Buttons should be easy to notice, text should be readable, and
-              pages should be organized in a logical way. When users understand where to click and what to do next, they are
-              more likely to stay on the website and complete their goal.
+            However, these improvements also come with weaknesses. Many people become too dependent on their devices and may lose practical skills because technology does so much for them. Constant updates can also be stressful, especially for people who struggle to keep up with new systems. At the same time, technology creates risks such as cybercrime, job loss through automation, privacy problems, and the spread of false information online.
             </p>
             <p>
-              A strong design is not always complicated. In many cases, simple layouts, clear headings, enough spacing, and
-              consistent colors create the best experience. The main goal is to make the digital product useful, clear, and
-              pleasant to use.
+            The aspect I want to focus on most is privacy. As technology improves, more personal data is collected by apps, websites, and smart devices. They can track what we search for, where we go, what we buy, and what we are interested in. This can make services more personalised and useful, but it can also be dangerous if the data is stolen, sold, or misused. In my opinion, improving technology is a positive thing, but only when people understand the risks. We should not reject new technology, but we should use it carefully. Strong passwords, privacy settings, regular updates, and digital awareness are important because technology should support people, not control them.
             </p>
           </article>
-    
+
           <article class="card">
-            <div class="case-label">Blog Post 04</div>
-            <h3>How to Plan a Successful IT Project</h3>
+            <div class="case-label" style="background: var(--accent-3);">Blog Post 03 - Christian</div>
+            <h3>My Opinion on Technology and Its Vulnerabilities</h3> 
             <p>
-              A successful IT project starts before any coding begins. The team first needs to understand the client’s
-              problem, goals, target users, and expected result. Without a clear plan, projects can become confusing and
-              difficult to complete on time.
+            Technology is always evolving, and I think that is both exciting and worrying. The biggest benefit is that new technology can make life easier, faster, and more connected. It helps people communicate across the world, improves healthcare, supports education, and allows businesses to work more efficiently. For example, artificial intelligence can help doctors detect illnesses earlier, while online learning gives more people access to information. These improvements show how technology can solve real problems and create new opportunities for people who may not have had them before.
             </p>
             <p>
-              Good planning includes defining tasks, assigning responsibilities, setting realistic deadlines, and documenting
-              progress. This helps the team stay organized and makes it easier to explain decisions to the client.
+            However, constant improvement also creates weaknesses. As technology becomes more advanced, people and organizations often depend on it too much. If systems fail, are hacked, or are used irresponsibly, the damage can be serious. Personal data can be stolen, jobs can change or disappear, and people may lose important skills because machines do more of the thinking for them. The same tools that make life convenient can also make people vulnerable if they are not managed carefully.
             </p>
             <p>
-              Communication is also very important. Team members should share updates, ask questions early, and solve
-              problems together. When planning, communication, and technical work are combined, the final result is more
-              professional and more useful for the client.
+            The aspect I find most important is cybersecurity. As technology grows, more personal information is stored online, including passwords, bank details, medical records, and private messages. This creates a major opportunity to protect people through stronger security systems, better encryption, and smarter ways to detect cyberattacks. At the same time, it creates a threat because criminals also use evolving technology to become more advanced. In my opinion, technology should keep improving, but safety must improve with it. Progress is valuable only when people can trust the systems they use every day. Without that trust, even the most impressive technology can become a risk instead of a benefit.
             </p>
           </article>
         </div>
