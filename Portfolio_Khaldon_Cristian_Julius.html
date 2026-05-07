@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaForge Solutions | Business Portfolio</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-alt: #eef4ff;
+      --primary: #163a6b;
+      --primary-2: #24539a;
+      --accent: #dbe7f8;
+      --accent-2: #dff3ea;
+      --accent-3: #fff2dd;
+      --text: #1b2430;
+      --muted: #5c6775;
+      --border: #d9e2ef;
+      --shadow: 0 12px 32px rgba(22, 58, 107, 0.08);
+      --radius: 20px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef3fa 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.2px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 1.05rem;
+      box-shadow: var(--shadow);
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      padding: 5.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .hero p,
+    .section-intro,
+    .muted {
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.6rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(22, 58, 107, 0.14);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .hero-card,
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 1.5rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 112px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+    }
+
+    section {
+      padding: 1.3rem 0 3.3rem;
+    }
+
+    main > section:nth-of-type(odd) {
+      background: rgba(255,255,255,0.5);
+    }
+
+    main > section:nth-of-type(even) {
+      background: var(--surface-alt);
+    }
+
+    .section-head {
+      margin-bottom: 1.3rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      padding: 1.35rem;
+    }
+
+    .pillars .card {
+      border-top: 4px solid var(--primary);
+    }
+
+    .team-card ul,
+    .service-list,
+    .star-list,
+    .presentation-list {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .team-name {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .role {
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    th, td {
+      padding: 0.95rem 0.85rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #eff5fd;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .case-studies-wrap {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .case-study {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+      gap: 1.4rem;
+      align-items: stretch;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .case-study.reverse {
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .case-copy,
+    .case-star {
+      padding: 1.6rem;
+    }
+
+    .case-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .case-label {
+      display: inline-block;
+      width: fit-content;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+      background: var(--accent);
+      color: var(--primary);
+    }
+
+    .case-description {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .case-meta {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .case-meta-item strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 0.18rem;
+    }
+
+    .case-study .result {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      background: #f5f9ff;
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+    }
+
+    .case-star {
+      color: white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      min-height: 100%;
+      background: linear-gradient(145deg, var(--primary), var(--primary-2));
+      position: relative;
+      isolation: isolate;
+    }
+
+    .case-study.case-green .case-star {
+      background: linear-gradient(145deg, #1f6b56, #2d8a71);
+    }
+
+    .case-study.case-gold .case-star {
+      background: linear-gradient(145deg, #a86a15, #d08b27);
+    }
+
+    .star-shape {
+      font-size: clamp(6rem, 12vw, 9rem);
+      line-height: 1;
+      opacity: 0.18;
+      position: absolute;
+      inset: auto;
+    }
+
+    .case-star-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-star-content h4 {
+      margin: 0 0 0.45rem;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+
+    .case-star-content p {
+      margin: 0;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      background: linear-gradient(160deg, var(--primary), var(--primary-2));
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 1.7rem;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h3,
+    .contact-panel .muted,
+    .contact-panel p,
+    .contact-panel a {
+      color: #fff;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-card p {
+      margin: 0.35rem 0;
+    }
+
+    .contact-form-wrap {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.6rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font: inherit;
+      background: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary-2);
+      box-shadow: 0 0 0 4px rgba(36, 83, 154, 0.12);
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .note {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 2rem 0 2.5rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+
+    .brand-identity-logo-wrap {
+      display: grid;
+      place-items: center;
+      padding: 0.75rem 0 0.25rem;
+    }
+
+    .brand-identity-logo {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 18px rgba(22, 58, 107, 0.12));
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col,
+      .three-col,
+      .contact-box,
+      .case-study,
+      .case-study.reverse,
+      .contact-form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .case-star {
+        min-height: 220px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        gap: 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 1.2rem), var(--max));
+      }
+
+      .hero {
+        padding-top: 3.8rem;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      th, td {
+        font-size: 0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="NovaForge Solutions home">
+        <div class="logo">N</div>
+        <span>NovaForge Solutions</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#case-studies">Case Studies</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Student IT Business Portfolio</div>
+          <h1>Smart software. Practical results.</h1>
+          <p>
+            NovaForge Solutions turns ideas into smart digital solutions.
+            Websites, software, and automation that help businesses work better.
+          </p>
+          <p>
+            We combine technical skills, project planning, and clear communication to deliver reliable
+            digital solutions that solve real business problems.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#services">View Our Services</a>
+            <a class="btn btn-secondary" href="#case-studies">See Our Projects</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="brand-identity-logo-wrap">
+            <img
+              class="brand-identity-logo"
+              src="modern_tech_brand_novaforge_solutions.png"
+              alt="NovaForge Solutions logo"
+            />
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>3</strong>
+              Core service areas
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              Sample case studies
+            </div>
+            <div class="stat">
+              <strong>1</strong>
+              Clear mission
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              Client-focused approach
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About Us</h2>
+          <p class="section-intro">
+            NovaForge Solutions was created to support businesses that need affordable, effective, and
+            professional digital services.
+          </p>
+        </div>
+
+        <div class="grid two-col">
+          <div class="card">
+            <h3>Who We Are</h3>
+            <p>
+              We are a student-led IT consultancy that understands how businesses can struggle with
+              outdated websites, repetitive manual tasks, and inefficient digital systems.
+            </p>
+            <p>
+              Our role is to design practical digital solutions that improve communication, productivity,
+              and online presence.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Our Mission</h3>
+            <p>
+              We believe successful IT projects are not just about writing code. They are about
+              understanding client needs, planning carefully, and delivering measurable results.
+            </p>
+            <p>
+              Our work focuses on usability, organization, and professional presentation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our Team</h2>
+          <p class="section-intro">
+            Get to know our team.
+          </p>
+        </div>
+
+        <div class="grid three-col">
+          <article class="card team-card">
+            <div class="team-name">Julius Ay</div>
+            <div class="role">Frontend Developer</div>
+            <ul>
+              <li>HTML, CSS, JavaScript</li>
+              <li>Responsive web design</li>
+              <li>UI/UX basics</li>
+              <li>Team collaboration</li>
+            </ul>
+          </article>
+
+          <article class="card team-card">
+            <div class="team-name">Khaldon Kassem</div>
+            <div class="role">Backend Developer</div>
+            <ul>
+              <li>Python, Java, SQL</li>
+              <li>Database design</li>
+              <li>API integration</li>
+              <li>Debugging and testing</li>
+            </ul>
+          </article>
+
+          <article class="card team-card">
+            <div class="team-name">Christian Ahlswede</div>
+            <div class="role">Project Coordinator</div>
+            <ul>
+              <li>Agile planning</li>
+              <li>Client communication</li>
+              <li>Documentation</li>
+              <li>Presentation and research</li>
+            </ul>
+          </article>
+        </div>
+
+        <div style="margin-top: 1.4rem;">
+          <h3>Skills Matrix</h3>
+          <table aria-label="Skills Matrix">
+            <thead>
+              <tr>
+                <th>Skill</th>
+                <th>Julius</th>
+                <th>Khaldon</th>
+                <th>Christian</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HTML/CSS</td>
+                <td>Advanced</td>
+                <td>Intermediate</td>
+                <td>Basic</td>
+              </tr>
+              <tr>
+                <td>JavaScript</td>
+                <td>Advanced</td>
+                <td>Intermediate</td>
+                <td>Basic</td>
+              </tr>
+              <tr>
+                <td>Python</td>
+                <td>Intermediate</td>
+                <td>Advanced</td>
+                <td>Intermediate</td>
+              </tr>
+              <tr>
+                <td>SQL</td>
+                <td>Basic</td>
+                <td>Advanced</td>
+                <td>Intermediate</td>
+              </tr>
+              <tr>
+                <td>UI/UX Design</td>
+                <td>Advanced</td>
+                <td>Basic</td>
+                <td>Intermediate</td>
+              </tr>
+              <tr>
+                <td>Project Management</td>
+                <td>Intermediate</td>
+                <td>Intermediate</td>
+                <td>Advanced</td>
+              </tr>
+              <tr>
+                <td>Communication</td>
+                <td>Intermediate</td>
+                <td>Intermediate</td>
+                <td>Advanced</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies">
+      <div class="container">
+        <div class="section-head">
+          <h2>Case Studies</h2>
+          <p class="section-intro">
+            See what we have already accomplished.
+          </p>
+        </div>
+
+        <div class="case-studies-wrap">
+          <article class="card case-study case-blue">
+            <div class="case-copy">
+              <span class="case-label">Case Study 01</span>
+              <h3>Local Café Website Redesign</h3>
+              <p class="case-description">
+                A complete digital refresh designed to make a neighborhood café easier to discover, easier to browse, and more professional online.
+              </p>
+              <div class="case-meta">
+                <div class="case-meta-item">
+                  <strong>Situation</strong>
+                  The café’s old website was difficult to use on mobile devices and did not clearly present opening hours, menu highlights, or the brand personality.
+                </div>
+                <div class="case-meta-item">
+                  <strong>Task</strong>
+                  Create a modern, responsive website that improves customer access to key information and strengthens trust in the brand.
+                </div>
+                <div class="case-meta-item">
+                  <strong>Action</strong>
+                  We redesigned the page structure, improved navigation, introduced clearer visual hierarchy, and refreshed colors and typography for a cleaner customer experience.
+                </div>
+              </div>
+              <div class="result"><strong>Result:</strong> The new website delivered a stronger first impression, improved mobile usability, and made important information much faster to find.</div>
+            </div>
+            <div class="case-star">
+              <div class="star-shape">★</div>
+              <div class="case-star-content">
+                <h4>Modern Brand Presence</h4>
+                <p>Responsive design, clearer content, and a polished customer-facing experience.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card case-study reverse case-green">
+            <div class="case-star">
+              <div class="star-shape">★</div>
+              <div class="case-star-content">
+                <h4>Smarter Booking Flow</h4>
+                <p>Better structure, less manual work, and more reliable appointment handling.</p>
+              </div>
+            </div>
+            <div class="case-copy">
+              <span class="case-label" style="background: var(--accent-2);">Case Study 02</span>
+              <h3>Appointment Booking Automation</h3>
+              <p class="case-description">
+                A workflow improvement project focused on reducing scheduling confusion and helping a small service business manage appointments more efficiently.
+              </p>
+              <div class="case-meta">
+                <div class="case-meta-item">
+                  <strong>Situation</strong>
+                  Appointments were being handled manually through calls and spreadsheets, which led to double-bookings, inconsistent records, and unnecessary admin effort.
+                </div>
+                <div class="case-meta-item">
+                  <strong>Task</strong>
+                  Develop a clear digital process that organizes bookings, improves visibility, and reduces time spent on repetitive scheduling tasks.
+                </div>
+                <div class="case-meta-item">
+                  <strong>Action</strong>
+                  We mapped the booking journey, structured appointment data more clearly, and designed a workflow that made incoming requests easier to track and manage.
+                </div>
+              </div>
+              <div class="result"><strong>Result:</strong> The improved workflow reduced scheduling errors, created better internal organization, and saved several hours of manual work each week.</div>
+            </div>
+          </article>
+
+          <article class="card case-study case-gold">
+            <div class="case-copy">
+              <span class="case-label" style="background: var(--accent-3);">Case Study 03</span>
+              <h3>Student Event Registration Page</h3>
+              <p class="case-description">
+                A focused landing page project created to make event sign-ups easier, more attractive, and more organized for both participants and organizers.
+              </p>
+              <div class="case-meta">
+                <div class="case-meta-item">
+                  <strong>Situation</strong>
+                  A student organization needed a more professional way to present an event and manage registrations without relying on scattered communication.
+                </div>
+                <div class="case-meta-item">
+                  <strong>Task</strong>
+                  Build a clear, visually engaging registration page that encourages participation and simplifies information collection.
+                </div>
+                <div class="case-meta-item">
+                  <strong>Action</strong>
+                  We created a dedicated landing page, structured the event information more effectively, and designed a clean registration flow that reduced friction for users.
+                </div>
+              </div>
+              <div class="result"><strong>Result:</strong> The final page improved communication, supported a smoother sign-up experience, and elevated the overall presentation of the event.</div>
+            </div>
+            <div class="case-star">
+              <div class="star-shape">★</div>
+              <div class="case-star-content">
+                <h4>Clearer Event Experience</h4>
+                <p>A simple, attractive sign-up flow with stronger presentation and better structure.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our Services</h2>
+          <p class="section-intro">
+            We offer practical digital services designed to solve common business problems.
+          </p>
+        </div>
+
+        <div class="grid two-col">
+          <article class="card">
+            <h3>Custom Website Development</h3>
+            <p>Professional, responsive websites for businesses, personal brands, and startups.</p>
+          </article>
+          <article class="card">
+            <h3>Workflow Automation</h3>
+            <p>Digital tools and systems that reduce repetitive manual work and improve efficiency.</p>
+          </article>
+          <article class="card">
+            <h3>UI/UX Design</h3>
+            <p>Clean, user-friendly interface design that improves customer experience and usability.</p>
+          </article>
+          <article class="card">
+            <h3>Database &amp; System Support</h3>
+            <p>Basic database setup, data organization, and software structure support for small projects.</p>
+          </article>
+          <article class="card">
+            <h3>Business Portfolio Development</h3>
+            <p>Professional portfolio websites that present a company’s identity, team, and services clearly.</p>
+          </article>
+          <article class="card">
+            <h3>Client Communication Support</h3>
+            <p>Structured documentation, presentation preparation, and business-focused project reporting.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact Us</h2>
+          <p class="section-intro">
+            Let’s build something useful together.
+          </p>
+        </div>
+
+        <div class="contact-box">
+          <article class="contact-panel">
+            <div class="eyebrow" style="background: rgba(255,255,255,0.16); color: #fff;">Let’s Talk</div>
+            <h3>Contact Information</h3>
+            <p class="muted" style="color: rgba(255,255,255,0.85);">
+              We are happy to discuss websites, digital workflows, and tailored solutions for small and growing businesses.
+            </p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>Email</strong>
+                info@novaforge-demo.com
+              </div>
+              <div class="contact-item">
+                <strong>Phone</strong>
+                +49 123 456789
+              </div>
+              <div class="contact-item">
+                <strong>Location</strong>
+                Berlin, Germany
+              </div>
+            </div>
+          </article>
+
+          <article class="contact-form-wrap">
+            <h3>Send Us a Message</h3>
+            <p class="section-intro">
+              Share a short overview of your project and we will get back to you with the next steps.
+            </p>
+            <form class="contact-form">
+              <div class="contact-form-row">
+                <input type="text" placeholder="Full Name" />
+                <input type="email" placeholder="Email Address" />
+              </div>
+              <div class="contact-form-row">
+                <input type="text" placeholder="Company Name" />
+                <input type="text" placeholder="Project Type" />
+              </div>
+              <textarea placeholder="Tell us about your project"></textarea>
+              <button type="button" class="btn btn-primary">Send Inquiry</button>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 NovaForge Solutions. Student business portfolio website.</p>
+    </div>
+  </footer>
+</body>
+</html>
