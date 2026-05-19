@@ -532,6 +532,18 @@
       filter: drop-shadow(0 10px 18px rgba(22, 58, 107, 0.12));
     }
 
+    .category-heading {
+      margin: 2.5rem 0 1rem;
+    }
+
+    .category-heading h2 {
+      margin-bottom: 0.4rem;
+    }
+
+    .category-heading .section-intro {
+      margin: 0;
+    }
+
     @media (max-width: 900px) {
       .hero-grid,
       .two-col,
@@ -995,7 +1007,16 @@
         </section>
 
 
+
+
         <div class="case-studies-wrap">
+          <div class="section-head category-heading">
+            <h2>Personal Reflections on Technology and Cybersecurity</h2>
+            <p class="section-intro">
+              Perspectives on the benefits, risks, and vulnerabilities of modern technology.
+            </p>
+          </div>
+
           <article class="card">
             <div class="case-label">Blog Post 01 - Julius</div>
             <h3>My Opinion on Technology and Its Vulnerabilities</h3>
@@ -1051,9 +1072,98 @@
             The aspect I find most important is cybersecurity. As technology grows, more personal information is stored online, including passwords, bank details, medical records, and private messages. This creates a major opportunity to protect people through stronger security systems, better encryption, and smarter ways to detect cyberattacks. At the same time, it creates a threat because criminals also use evolving technology to become more advanced. In my opinion, technology should keep improving, but safety must improve with it. Progress is valuable only when people can trust the systems they use every day. Without that trust, even the most impressive technology can become a risk instead of a benefit.
             </p>
           </article>
-        </div>
+
+          <div class="section-head category-heading">
+            <h2>Legal or Illegal? Use of AI in Academia</h2>
+            <p class="section-intro">
+              Three academic scenarios showing acceptable, questionable, and unacceptable uses of AI.
+            </p>
+          </div>
+
+          <article class="card">
+            <div class="case-label">Blog Post 04 - AI in Academia</div>
+            <h3>Case 1: Using AI to Improve an Essay Draft</h3>
+            <p>
+              A university student writes an essay about climate change and then uses an AI tool to check grammar,
+              improve sentence structure, and make the writing clearer. The student does not ask the AI to create
+              the essay from scratch. Instead, they use it like a writing assistant after completing their own research,
+              planning, and first draft.
+            </p>
+
+            <details>
+              <summary class="btn btn-secondary">Reveal category</summary>
+              <div style="margin-top: 1rem; padding: 1rem; border-radius: 14px; background: #8fd14f; color: #10210b;">
+                <strong>GREEN: Acceptable use that supports learning</strong>
+                <p>
+                  This can support learning because the student still develops their own ideas and arguments. The AI helps
+                  with language improvement, but the academic work remains the student’s own. The student should still review
+                  every suggestion carefully and follow the university’s AI policy.
+                </p>
+                <p style="margin-bottom: 0;">
+                  What does green mean: This use supports language improvement and does not replace the student’s own thinking or research.
+                </p>
+              </div>
+            </details>
+          </article>
+
+          <article class="card">
+            <div class="case-label" style="background: var(--accent-2);">Blog Post 05 - AI in Academia</div>
+            <h3>Case 2: Using AI to Summarize Academic Articles</h3>
+            <p>
+              A student is preparing for a seminar and uses AI to summarize three long academic articles. The summaries
+              help the student understand the main ideas more quickly before reading the full texts. However, the student
+              does not rely only on the AI summary and still checks the original sources for important arguments, evidence,
+              and quotations.
+            </p>
+
+            <details>
+              <summary class="btn btn-secondary">Reveal category</summary>
+              <div style="margin-top: 1rem; padding: 1rem; border-radius: 14px; background: #ffc000; color: #1b1b1b;">
+                <strong>YELLOW: Requires careful consideration</strong>
+                <p>
+                  This situation can be useful, but it needs careful handling. AI summaries can miss details, misunderstand
+                  arguments, or simplify complex academic ideas too much. The student should ask the professor whether this
+                  kind of AI use is allowed and should never cite the AI summary as if it were the original article.
+                </p>
+                <p style="margin-bottom: 0;">
+                  What does yellow mean: This may be useful with proper guidelines, but it could risk learning objectives if the student avoids
+                  thinking by himself.
+                </p>
+              </div>
+            </details>
+          </article>
+
+          <article class="card">
+            <div class="case-label" style="background: var(--accent-3);">Blog Post 06 - AI in Academia</div>
+            <h3>Case 3: Submitting an AI-Written Assignment</h3>
+            <p>
+              A student has a deadline for a history assignment and asks an AI tool to write the full essay. The student
+              copies the AI-generated text, makes only a few small changes, and submits it under their own name without
+              telling the teacher. The student also includes sources suggested by AI without checking whether they are real
+              or accurate.
+            </p>
+            
+
+            <details>
+              <summary class="btn btn-secondary">Reveal category</summary>
+              <div style="margin-top: 1rem; padding: 1rem; border-radius: 14px; background: #ff0000; color: #ffffff;">
+                <strong>RED: Unacceptable use</strong>
+                <p>
+                  This is a serious academic problem because the submitted work does not represent the student’s own knowledge,
+                  effort, or understanding. It also prevents the teacher from properly assessing the student’s skills. In many
+                  schools and universities, this would be treated as academic misconduct.
+                </p>
+                <p style="margin-bottom: 0;">
+                  What does red mean: This violates academic integrity, circumvents the learning process, and is likely prohibited by academic policy.
+                </p>
+              </div>
+            </details>
+          </article>
+
       </div>
     </section>
+
+    
 
 
   </main>
