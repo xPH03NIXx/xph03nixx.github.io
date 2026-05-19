@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Posts | NovaForge Solutions</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-alt: #eef4ff;
+      --primary: #163a6b;
+      --primary-2: #24539a;
+      --accent: #dbe7f8;
+      --accent-2: #dff3ea;
+      --accent-3: #fff2dd;
+      --text: #1b2430;
+      --muted: #5c6775;
+      --border: #d9e2ef;
+      --shadow: 0 12px 32px rgba(22, 58, 107, 0.08);
+      --radius: 20px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef3fa 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.2px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 1.05rem;
+      box-shadow: var(--shadow);
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      padding: 5.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .hero p,
+    .section-intro,
+    .muted {
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.6rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(22, 58, 107, 0.14);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .hero-card,
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 1.5rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 112px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+    }
+
+    section {
+      padding: 1.3rem 0 3.3rem;
+    }
+
+    main > section:nth-of-type(odd) {
+      background: rgba(255,255,255,0.5);
+    }
+
+    main > section:nth-of-type(even) {
+      background: var(--surface-alt);
+    }
+
+    .section-head {
+      margin-bottom: 1.3rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      padding: 1.35rem;
+    }
+
+    .pillars .card {
+      border-top: 4px solid var(--primary);
+    }
+
+    .team-card ul,
+    .service-list,
+    .star-list,
+    .presentation-list {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .team-name {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .role {
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    th, td {
+      padding: 0.95rem 0.85rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #eff5fd;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .case-studies-wrap {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .case-study {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+      gap: 1.4rem;
+      align-items: stretch;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .case-study.reverse {
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .case-copy,
+    .case-star {
+      padding: 1.6rem;
+    }
+
+    .case-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .case-label {
+      display: inline-block;
+      width: fit-content;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+      background: var(--accent);
+      color: var(--primary);
+    }
+
+    .case-description {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .case-meta {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .case-meta-item strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 0.18rem;
+    }
+
+    .case-study .result {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      background: #f5f9ff;
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+    }
+
+    .case-star {
+      color: white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      min-height: 100%;
+      background: linear-gradient(145deg, var(--primary), var(--primary-2));
+      position: relative;
+      isolation: isolate;
+    }
+
+    .case-study.case-green .case-star {
+      background: linear-gradient(145deg, #1f6b56, #2d8a71);
+    }
+
+    .case-study.case-gold .case-star {
+      background: linear-gradient(145deg, #a86a15, #d08b27);
+    }
+
+    .star-shape {
+      font-size: clamp(6rem, 12vw, 9rem);
+      line-height: 1;
+      opacity: 0.18;
+      position: absolute;
+      inset: auto;
+    }
+
+    .case-star-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-star-content h4 {
+      margin: 0 0 0.45rem;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+
+    .case-star-content p {
+      margin: 0;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      background: linear-gradient(160deg, var(--primary), var(--primary-2));
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 1.7rem;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h3,
+    .contact-panel .muted,
+    .contact-panel p,
+    .contact-panel a {
+      color: #fff;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-card p {
+      margin: 0.35rem 0;
+    }
+
+    .contact-form-wrap {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.6rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font: inherit;
+      background: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary-2);
+      box-shadow: 0 0 0 4px rgba(36, 83, 154, 0.12);
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .note {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 2rem 0 2.5rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+
+    .brand-identity-logo-wrap {
+      display: grid;
+      place-items: center;
+      padding: 0.75rem 0 0.25rem;
+    }
+
+    .brand-identity-logo {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 18px rgba(22, 58, 107, 0.12));
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col,
+      .three-col,
+      .contact-box,
+      .case-study,
+      .case-study.reverse,
+      .contact-form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .case-star {
+        min-height: 220px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        gap: 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 1.2rem), var(--max));
+      }
+
+      .hero {
+        padding-top: 3.8rem;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      th, td {
+        font-size: 0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="Portfolio.html#home" aria-label="NovaForge Solutions home">
+        <div class="logo">N</div>
+        <span>NovaForge Solutions</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="Portfolio.html#about">About</a></li>
+          <li><a href="Portfolio.html#team">Team</a></li>
+          <li><a href="Portfolio.html#case-studies">Case Studies</a></li>
+          <li><a href="blogposts.html">Blog Posts</a></li>
+          <li><a href="Portfolio.html#services">Services</a></li>
+          <li><a href="Portfolio.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section id="blog">
+      <div class="container">
+        <div class="section-head">
+          <h2>Blog Posts</h2>
+          <p class="section-intro">
+            Insights, updates, and practical advice from the NovaForge Solutions team.
+          </p>
+        </div>
+
+        <section class="managers-guide-poster" aria-label="The Manager's Guide information poster">
+          <style>
+            .managers-guide-poster {
+              --bg: #f6f1e8;
+              --ink: #1f2933;
+              --muted: #5f6c7b;
+              --accent: #2563eb;
+              --accent-dark: #173ea5;
+              --card: #ffffff;
+              --gold: #f2b84b;
+              --green: #2f855a;
+              --shadow: 0 18px 45px rgba(31, 41, 51, 0.16);
+
+              box-sizing: border-box;
+              max-width: 1050px;
+              position: relative;
+              z-index: 0;
+              clear: both;
+              margin: 3rem auto 2rem;
+              padding: 0;
+              font-family: Inter, Arial, Helvetica, sans-serif;
+              color: var(--ink);
+              background: var(--bg);
+              border-radius: 28px;
+              overflow: hidden;
+              box-shadow: var(--shadow);
+              
+            }
+
+            .managers-guide-poster *,
+            .managers-guide-poster *::before,
+            .managers-guide-poster *::after {
+              box-sizing: border-box;
+            }
+
+            .poster-hero {
+              position: relative;
+              padding: 4rem 3rem 3rem;
+              background:
+                radial-gradient(circle at top right, rgba(242, 184, 75, 0.45), transparent 32%),
+                linear-gradient(135deg, #1d4ed8 0%, #2563eb 45%, #60a5fa 100%);
+              color: #ffffff;
+            }
+
+            .poster-hero::after {
+              content: "";
+              position: absolute;
+              right: -70px;
+              bottom: -90px;
+              width: 260px;
+              height: 260px;
+              border-radius: 50%;
+              border: 34px solid rgba(255, 255, 255, 0.18);
+            }
+
+            .poster-kicker {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 0.45rem 0.85rem;
+              border: 1px solid rgba(255, 255, 255, 0.45);
+              border-radius: 999px;
+              font-size: 0.85rem;
+              font-weight: 700;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              background: rgba(255, 255, 255, 0.14);
+              backdrop-filter: blur(8px);
+            }
+
+            .poster-title {
+              max-width: 760px;
+              margin: 1.2rem 0 0.75rem;
+              font-size: clamp(2.8rem, 7vw, 6.4rem);
+              line-height: 0.92;
+              letter-spacing: -0.08em;
+              font-weight: 900;
+            }
+
+            .poster-subtitle {
+              max-width: 680px;
+              margin: 0;
+              font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+              line-height: 1.6;
+              color: rgba(255, 255, 255, 0.92);
+            }
+
+            .poster-body {
+              padding: 2.25rem;
+            }
+
+            .definition-card {
+              display: grid;
+              grid-template-columns: 1.1fr 0.9fr;
+              gap: 1.5rem;
+              align-items: stretch;
+              margin-bottom: 1.5rem;
+            }
+
+            .meaning-box,
+            .quote-box,
+            .guide-card,
+            .action-panel {
+              background: var(--card);
+              border-radius: 24px;
+              padding: 1.6rem;
+              box-shadow: 0 8px 24px rgba(31, 41, 51, 0.08);
+              border: 1px solid rgba(31, 41, 51, 0.08);
+            }
+
+            .section-label {
+              margin: 0 0 0.7rem;
+              color: var(--accent-dark);
+              font-size: 0.82rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              font-weight: 900;
+            }
+
+            .meaning-box h2,
+            .action-panel h2 {
+              margin: 0 0 0.65rem;
+              font-size: clamp(1.45rem, 3vw, 2rem);
+              line-height: 1.15;
+            }
+
+            .meaning-box p,
+            .action-panel p,
+            .guide-card p,
+            .quote-box p {
+              margin: 0;
+              color: var(--muted);
+              line-height: 1.65;
+              font-size: 1rem;
+            }
+
+            .quote-box {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              background: #111827;
+              color: #ffffff;
+              position: relative;
+              overflow: hidden;
+            }
+
+            .quote-box::before {
+              content: "“";
+              position: absolute;
+              top: -38px;
+              left: 16px;
+              color: rgba(255, 255, 255, 0.12);
+              font-size: 9rem;
+              font-family: Georgia, serif;
+            }
+
+            .quote-box p {
+              position: relative;
+              color: rgba(255, 255, 255, 0.92);
+              font-size: 1.25rem;
+              font-weight: 750;
+              line-height: 1.45;
+            }
+
+            .quote-box span {
+              position: relative;
+              margin-top: 1rem;
+              color: var(--gold);
+              font-size: 0.95rem;
+              font-weight: 800;
+            }
+
+            .guide-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 1rem;
+              margin-bottom: 1.5rem;
+            }
+
+            .guide-card {
+              min-height: 250px;
+              position: relative;
+            }
+
+            .icon-badge {
+              width: 50px;
+              height: 50px;
+              display: grid;
+              place-items: center;
+              border-radius: 18px;
+              margin-bottom: 1rem;
+              font-size: 1.55rem;
+              background: rgba(37, 99, 235, 0.1);
+            }
+
+            .guide-card:nth-child(2) .icon-badge {
+              background: rgba(242, 184, 75, 0.18);
+            }
+
+            .guide-card:nth-child(3) .icon-badge {
+              background: rgba(47, 133, 90, 0.13);
+            }
+
+            .guide-card h3 {
+              margin: 0 0 0.55rem;
+              font-size: 1.22rem;
+              line-height: 1.2;
+            }
+
+            .guide-card ul {
+              margin: 1rem 0 0;
+              padding-left: 1.1rem;
+              color: var(--muted);
+              line-height: 1.55;
+              font-size: 0.95rem;
+            }
+
+            .guide-card li + li {
+              margin-top: 0.45rem;
+            }
+
+            .action-panel {
+              background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.86)),
+                radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.18), transparent 36%);
+            }
+
+            .steps {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 0.8rem;
+              margin-top: 1.25rem;
+            }
+
+            .step {
+              padding: 1rem;
+              border-radius: 18px;
+              background: #f8fafc;
+              border: 1px solid rgba(31, 41, 51, 0.08);
+            }
+
+            .step strong {
+              display: block;
+              margin-bottom: 0.45rem;
+              color: var(--accent-dark);
+              font-size: 0.85rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+            }
+
+            .step span {
+              display: block;
+              color: var(--ink);
+              font-weight: 800;
+              line-height: 1.25;
+            }
+
+            .poster-footer {
+              display: flex;
+              justify-content: space-between;
+              gap: 1rem;
+              align-items: center;
+              padding: 1.2rem 2.25rem 1.7rem;
+              color: var(--muted);
+              font-size: 0.95rem;
+            }
+
+            .footer-pill {
+              padding: 0.55rem 0.85rem;
+              background: rgba(37, 99, 235, 0.1);
+              color: var(--accent-dark);
+              border-radius: 999px;
+              font-weight: 800;
+            }
+
+            @media (max-width: 850px) {
+              .poster-hero,
+              .poster-body,
+              .poster-footer {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+              }
+
+              .definition-card,
+              .guide-grid,
+              .steps {
+                grid-template-columns: 1fr;
+              }
+
+              .guide-card {
+                min-height: auto;
+              }
+
+              .poster-footer {
+                flex-direction: column;
+                align-items: flex-start;
+              }
+            }
+          </style>
+
+          <header class="poster-hero">
+            <div class="poster-kicker">Leadership • Communication • Growth</div>
+            <h1 class="poster-title">The Manager’s Guide</h1>
+            <p class="poster-subtitle">
+              A manager is not simply the person who gives instructions. A manager is a guide who creates direction, supports people, solves problems, and helps a team succeed together.
+            </p>
+          </header>
+
+          <div class="poster-body">
+            <div class="definition-card">
+              <article class="meaning-box">
+                <p class="section-label">What it means to us</p>
+                <h2>Management means turning goals into shared action.</h2>
+                <p>
+                  To us, “The Manager’s Guide” means knowing how to lead with fairness, confidence, and responsibility. A good manager sets clear expectations, listens to their team, makes decisions, and creates an environment where people understand their role and feel motivated to do their best.
+                </p>
+              </article>
+
+              <aside class="quote-box">
+                <p>Great managers do not control every step. They create the conditions for people to succeed.</p>
+                <span>Our leadership principle</span>
+              </aside>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card">
+                <div class="icon-badge">🎯</div>
+                <h3>Set clear expectations</h3>
+                <p>A team works best when everyone understands the goal, the standard, and their responsibilities.</p>
+                <ul>
+                  <li>Explain tasks clearly.</li>
+                  <li>Agree on deadlines and priorities.</li>
+                  <li>Make success easy to recognise.</li>
+                </ul>
+              </article>
+
+              <article class="guide-card">
+                <div class="icon-badge">🤝</div>
+                <h3>Build trust and respect</h3>
+                <p>People are more likely to contribute when they feel heard, valued, and treated fairly.</p>
+                <ul>
+                  <li>Listen before judging.</li>
+                  <li>Give honest feedback kindly.</li>
+                  <li>Recognise effort and improvement.</li>
+                </ul>
+              </article>
+
+              <article class="guide-card">
+                <div class="icon-badge">📈</div>
+                <h3>Support progress</h3>
+                <p>A manager should help the team improve, not just point out what is wrong.</p>
+                <ul>
+                  <li>Check in regularly.</li>
+                  <li>Solve problems early.</li>
+                  <li>Encourage learning and confidence.</li>
+                </ul>
+              </article>
+            </div>
+
+            <section class="action-panel">
+              <p class="section-label">How to achieve it</p>
+              <h2>Four habits of an effective manager</h2>
+              <p>
+                These habits help managers lead in a practical and positive way. They turn expectations into everyday actions.
+              </p>
+
+              <div class="steps">
+                <div class="step">
+                  <strong>01</strong>
+                  <span>Communicate clearly and regularly</span>
+                </div>
+                <div class="step">
+                  <strong>02</strong>
+                  <span>Lead by example, not just by instruction</span>
+                </div>
+                <div class="step">
+                  <strong>03</strong>
+                  <span>Stay organised and make fair decisions</span>
+                </div>
+                <div class="step">
+                  <strong>04</strong>
+                  <span>Reflect, improve, and help others grow</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+
+        <div class="case-studies-wrap">
+          <article class="card">
+            <div class="case-label">Blog Post 01 - Julius</div>
+            <h3>My Opinion on Technology and Its Vulnerabilities</h3>
+            <p>
+              Today’s technology is powerful, useful, and almost impossible to avoid. I use my phone and laptop every day for communication, studying, entertainment, shopping, and storing personal information. Because of this, I believe it is important to acknowledge the vulnerabilities that come with modern devices instead of pretending they do not exist.
+            </p>
+
+            <p>
+              Technology has made life easier in many ways. Smartphones allow us to connect with people instantly, laptops help us complete school and work tasks, and online services make everyday activities more convenient. However, the same devices that help us can also expose us to risks such as hacking, phishing, malware, identity theft, and data leaks. These vulnerabilities are not always obvious, but they can have serious effects if users are careless.
+            </p>
+
+            <p>
+              In my opinion, ignoring technology vulnerabilities is dangerous. Some people assume that cyber threats only happen to companies or people with a lot of money, but anyone can become a target. A weak password, an unsafe Wi-Fi connection, or a suspicious link can put personal information at risk. This is why users need to be aware of how their devices work and how attackers may try to take advantage of them.
+            </p>
+
+            <p>
+              When I use devices like my mobile phone and laptop, I try to acknowledge these risks and take basic precautions. For example, I believe it is important to use strong passwords, enable two-factor authentication, update software regularly, avoid downloading unknown files, and be careful with links or messages that seem suspicious. These steps may seem small, but they can help protect personal data and reduce the chance of cyber attacks.
+            </p>
+
+            <p>
+              I also think that companies and technology developers have a responsibility to make devices and applications safer. Users should be informed about privacy settings, security updates, and possible risks. At the same time, users should not depend completely on companies to protect them. Cybersecurity is a shared responsibility between developers, organizations, and everyday users.
+            </p>
+
+            <p>
+              Overall, I believe modern technology is extremely valuable, but it should be used with awareness. I do not think we should fear technology, but we should respect the risks that come with it. By acknowledging vulnerabilities and practicing safe habits, we can enjoy the benefits of phones, laptops, and online services while protecting ourselves from avoidable threats.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="case-label" style="background: var(--accent-2);">Blog Post 02 - Khaldon</div>
+            <h3>The Benefits and Risks of Constantly Improving Technology</h3>
+            <p>
+            Technology is constantly changing, and I believe this brings both exciting benefits and serious risks. One of the biggest strengths of improving technology is that it makes everyday life faster, easier, and more convenient. Smartphones, online banking, artificial intelligence, and cloud storage help people communicate, study, work, and solve problems more efficiently than ever before. Technology also gives people better access to information and creates new opportunities for businesses, education, healthcare, and transport.
+            </p>
+            <p>
+            However, these improvements also come with weaknesses. Many people become too dependent on their devices and may lose practical skills because technology does so much for them. Constant updates can also be stressful, especially for people who struggle to keep up with new systems. At the same time, technology creates risks such as cybercrime, job loss through automation, privacy problems, and the spread of false information online.
+            </p>
+            <p>
+            The aspect I want to focus on most is privacy. As technology improves, more personal data is collected by apps, websites, and smart devices. They can track what we search for, where we go, what we buy, and what we are interested in. This can make services more personalised and useful, but it can also be dangerous if the data is stolen, sold, or misused. In my opinion, improving technology is a positive thing, but only when people understand the risks. We should not reject new technology, but we should use it carefully. Strong passwords, privacy settings, regular updates, and digital awareness are important because technology should support people, not control them.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="case-label" style="background: var(--accent-3);">Blog Post 03 - Christian</div>
+            <h3>My Opinion on Technology and Its Vulnerabilities</h3> 
+            <p>
+            Technology is always evolving, and I think that is both exciting and worrying. The biggest benefit is that new technology can make life easier, faster, and more connected. It helps people communicate across the world, improves healthcare, supports education, and allows businesses to work more efficiently. For example, artificial intelligence can help doctors detect illnesses earlier, while online learning gives more people access to information. These improvements show how technology can solve real problems and create new opportunities for people who may not have had them before.
+            </p>
+            <p>
+            However, constant improvement also creates weaknesses. As technology becomes more advanced, people and organizations often depend on it too much. If systems fail, are hacked, or are used irresponsibly, the damage can be serious. Personal data can be stolen, jobs can change or disappear, and people may lose important skills because machines do more of the thinking for them. The same tools that make life convenient can also make people vulnerable if they are not managed carefully.
+            </p>
+            <p>
+            The aspect I find most important is cybersecurity. As technology grows, more personal information is stored online, including passwords, bank details, medical records, and private messages. This creates a major opportunity to protect people through stronger security systems, better encryption, and smarter ways to detect cyberattacks. At the same time, it creates a threat because criminals also use evolving technology to become more advanced. In my opinion, technology should keep improving, but safety must improve with it. Progress is valuable only when people can trust the systems they use every day. Without that trust, even the most impressive technology can become a risk instead of a benefit.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><a href="Portfolio.html#home">Back to main portfolio</a></p>
+      <p>&copy; 2026 NovaForge Solutions. Student business portfolio website.</p>
+    </div>
+  </footer>
+</body>
+</html>
